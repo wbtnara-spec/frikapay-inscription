@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Devenir Partenaire FrikaPay</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --blue: #1A73E8;
+            --soft: #0a1a33;
+            --muted: #5c6b8a;
+            --card: #f2f6ff;
+            --green: #10B981;
+            --red: #EF4444;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', -apple-system, sans-serif;
+            background: linear-gradient(135deg, #1A73E8, #2a8df8);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 24px;
+            box-shadow: 0 20px 60px rgba(0,0,0,.3);
+            overflow: hidden;
+        }
+        .header {
+            background: linear-gradient(135deg, #1A73E8, #2a8df8);
+            color: #fff;
+            padding: 48px 40px;
+            text-align: center;
+        }
+        .logo-container {
+            width: 100px;
+            height: 100px;
+            margin: 0 auto 20px;
+            background: #fff;
+            border-radius: 20px;
+            box-shadow: 0 8px 24px rgba(0,0,0,.3);
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        .header h1 {
+            font-size: 2rem;
+            margin-bottom: 12px;
+            font-weight: 800;
+        }
+        .header p {
+            font-size: 1.05rem;
+            opacity: .95;
+            line-height: 1.6;
+        }
+        .badge {
+            display: inline-block;
+            background: rgba(255,255,255,.25);
+            padding: 8px 18px;
+            border-radius: 999px;
+            font-size: .9rem;
+            font-weight: 600;
+            margin-bottom: 16px;
+        }
+        .content {
+            padding: 48px 40px;
+        }
+        .intro-text {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .intro-text h2 {
+            color: var(--soft);
+            font-size: 1.5rem;
+            margin-bottom: 12px;
+        }
+        .intro-text p {
+            color: var(--muted);
+            line-height: 1.6;
+        }
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        .benefit-card {
+            background: var(--card);
+            padding: 24px;
+            border-radius: 12px;
+            text-align: center;
+        }
+        .benefit-card span {
+            font-size: 2.5rem;
+            display: block;
+            margin-bottom: 12px;
+        }
+        .benefit-card h3 {
+            color: var(--soft);
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        .form-section {
+            background: #f9fbff;
+            padding: 40px;
+            border-radius: 18px;
+            margin-bottom: 24px;
+        }
+        .form-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--soft);
+            margin-bottom: 24px;
+            text-align: center;
+        }
+        .form-row {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 20px;
+        }
+        .form-group {
+            margin-bottom: 20px;
+        }
+        label {
+            display: block;
+            font-weight: 600;
+            color: var(--soft);
+            margin-bottom: 8px;
+            font-size: .95rem;
+        }
+        .required {
+            color: var(--red);
+            margin-left: 4px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 14px 16px;
+            border: 2px solid #e3edff;
+            border-radius: 12px;
+            font-size: .95rem;
+            font-family: inherit;
+            color: var(--soft);
+            background: #fff;
+            transition: all .3s;
+        }
+        input:focus, select:focus, textarea:focus {
+            outline: none;
+            border-color: var(--blue);
+            box-shadow: 0 0 0 4px rgba(26,115,232,.12);
+        }
+        input.error, select.error, textarea.error {
+            border-color: var(--red);
+        }
+        textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+        .checkbox-group {
+            margin-bottom: 20px;
+        }
+        .checkbox-group label {
+            font-weight: 500;
+            margin-bottom: 12px;
+        }
+        .checkbox-option {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            padding: 12px;
+            background: #fff;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all .3s;
+        }
+        .checkbox-option:hover {
+            background: #f0f7ff;
+        }
+        .checkbox-option input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            cursor: pointer;
+            accent-color: var(--blue);
+        }
+        .checkbox-option span {
+            flex: 1;
+            color: var(--soft);
+            font-size: .95rem;
+        }
+        .error-message {
+            color: var(--red);
+            font-size: .85rem;
+            margin-top: 6px;
+            display: none;
+        }
+        .error-message.show {
+            display: block;
+        }
+        .submit-btn {
+            width: 100%;
+            padding: 18px;
+            background: linear-gradient(135deg, #1A73E8, #2a8df8);
+            color: #fff;
+            border: none;
+            border-radius: 14px;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all .3s;
+            box-shadow: 0 8px 24px rgba(26,115,232,.35);
+        }
+        .submit-btn:hover:not(:disabled) {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 32px rgba(26,115,232,.45);
+        }
+        .submit-btn:disabled {
+            opacity: .6;
+            cursor: not-allowed;
+        }
+        .submit-btn .loader {
+            display: none;
+            width: 22px;
+            height: 22px;
+            border: 3px solid rgba(255,255,255,.3);
+            border-top-color: #fff;
+            border-radius: 50%;
+            animation: spin .8s linear infinite;
+            margin: 0 auto;
+        }
+        .submit-btn.loading .loader {
+            display: block;
+        }
+        .submit-btn.loading .btn-text {
+            display: none;
+        }
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+        .form-note {
+            text-align: center;
+            font-size: .88rem;
+            color: var(--muted);
+            margin-top: 16px;
+            line-height: 1.6;
+        }
+        .back-link {
+            text-align: center;
+            margin-top: 24px;
+        }
+        .back-link a {
+            color: var(--blue);
+            text-decoration: none;
+            font-weight: 600;
+            transition: all .3s;
+        }
+        .back-link a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            .container {
+                margin: 20px auto;
+            }
+            .header {
+                padding: 36px 24px;
+            }
+            .content {
+                padding: 32px 24px;
+            }
+            .form-section {
+                padding: 28px 20px;
+            }
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <div class="logo-container">
+                <img src="logo.png" alt="FrikaPay Logo" class="logo">
+            </div>
+            <span class="badge">🤝 Partenariat Stratégique</span>
+            <h1>Devenez Partenaire FrikaPay</h1>
+            <p>Rejoignez l'écosystème de paiement sécurisé qui transforme le commerce africain</p>
+        </div>
+
+        <div class="content">
+            <div class="intro-text">
+                <h2>Construisons ensemble l'avenir du e-commerce africain</h2>
+                <p>FrikaPay recherche des partenaires stratégiques pour accélérer son déploiement en Afrique de l'Ouest. Ensemble, créons un écosystème de confiance.</p>
+            </div>
+
+            <div class="benefits-grid">
+                <div class="benefit-card">
+                    <span>🚀</span>
+                    <h3>Marché en croissance</h3>
+                </div>
+                <div class="benefit-card">
+                    <span>💼</span>
+                    <h3>Impact social</h3>
+                </div>
+                <div class="benefit-card">
+                    <span>🤝</span>
+                    <h3>Win-Win</h3>
+                </div>
+            </div>
+
+            <form id="partnershipForm" class="form-section">
+                <h3 class="form-title">💼 Formulaire de demande de partenariat</h3>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Nom de l'entreprise <span class="required">*</span></label>
+                        <input type="text" name="entreprise" id="entreprise" placeholder="Ex: MTN Bénin" required>
+                        <div class="error-message">Veuillez renseigner le nom de l'entreprise</div>
+                    </div>
+                    <div class="form-group">
+                        <label>Secteur d'activité <span class="required">*</span></label>
+                        <select name="secteur" id="secteur" required>
+                            <option value="">Sélectionnez un secteur</option>
+                            <option value="Banque">Banque</option>
+                            <option value="Microfinance">Microfinance</option>
+                            <option value="Mobile Money">Mobile Money / Télécommunications</option>
+                            <option value="Fintech">Fintech</option>
+                            <option value="Logistique">Logistique / Livraison</option>
+                            <option value="E-commerce">E-commerce / Marketplace</option>
+                            <option value="Investissement">Investissement / Capital</option>
+                            <option value="Technologie">Technologie / IT</option>
+                            <option value="Autre">Autre</option>
+                        </select>
+                        <div class="error-message">Veuillez sélectionner un secteur</div>
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Pays <span class="required">*</span></label>
+                        <select name="pays" id="pays" required>
+                            <option value="">Sélectionnez votre pays</option>
+                            <option value="Bénin">Bénin</option>
+                            <option value="Burkina Faso">Burkina Faso</option>
+                            <option value="Côte d'Ivoire">Côte d'Ivoire</option>
+                            <option value="Guinée-Bissau">Guinée-Bissau</option>
+                            <option value="Mali">Mali</option>
+                            <option value="Niger">Niger</option>
+                            <option value="Sénégal">Sénégal</option>
+                            <option value="Togo">Togo</option>
+                            <option value="Autre">Autre</option>
+                        </select>
+                        <div class="error-message">Veuillez sélectionner un pays</div>
+                    </div>
+                    <div class="form-group">
+                        <label>Site web</label>
+                        <input type="url" name="site_web" id="site_web" placeholder="https://www.exemple.com">
+                    </div>
+                </div>
+
+                <div class="form-group checkbox-group">
+                    <label>Type(s) de partenariat souhaité(s) <span class="required">*</span></label>
+                    <div class="checkbox-option">
+                        <input type="checkbox" name="type_partenariat" value="Banque / Microfinance" id="type1">
+                        <span>🏦 Banque / Microfinance</span>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="checkbox" name="type_partenariat" value="Mobile Money" id="type2">
+                        <span>📱 Opérateur Mobile Money</span>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="checkbox" name="type_partenariat" value="Logistique" id="type3">
+                        <span>🚚 Logistique / Livraison</span>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="checkbox" name="type_partenariat" value="Investissement" id="type4">
+                        <span>💰 Investissement</span>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="checkbox" name="type_partenariat" value="Distribution" id="type5">
+                        <span>🏪 Distribution / Réseau commercial</span>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="checkbox" name="type_partenariat" value="Technologie" id="type6">
+                        <span>⚙️ Intégration technologique</span>
+                    </div>
+                    <div class="checkbox-option">
+                        <input type="checkbox" name="type_partenariat" value="Autre" id="type7">
+                        <span>💼 Autre type de partenariat</span>
+                    </div>
+                    <div class="error-message">Veuillez sélectionner au moins un type de partenariat</div>
+                </div>
+
+                <div class="form-group">
+                    <label>Proposition ou besoin <span class="required">*</span></label>
+                    <textarea name="proposition" id="proposition" placeholder="Décrivez brièvement votre proposition de partenariat, vos attentes et la valeur ajoutée que vous pouvez apporter à FrikaPay..." required></textarea>
+                    <div class="error-message">Veuillez décrire votre proposition</div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Nom du contact <span class="required">*</span></label>
+                        <input type="text" name="nom_contact" id="nom_contact" placeholder="Ex: Jean Kouassi" required>
+                        <div class="error-message">Veuillez renseigner le nom du contact</div>
+                    </div>
+                    <div class="form-group">
+                        <label>Fonction</label>
+                        <input type="text" name="fonction" id="fonction" placeholder="Ex: Directeur Partenariats">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Email <span class="required">*</span></label>
+                        <input type="email" name="email" id="email" placeholder="contact@entreprise.com" required>
+                        <div class="error-message">Veuillez renseigner un email valide</div>
+                    </div>
+                    <div class="form-group">
+                        <label>Téléphone <span class="required">*</span></label>
+                        <input type="tel" name="telephone" id="telephone" placeholder="+229 XX XX XX XX" required>
+                        <div class="error-message">Veuillez renseigner un numéro de téléphone</div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Meilleur moment pour vous contacter</label>
+                    <select name="disponibilite" id="disponibilite">
+                        <option value="">Sélectionnez une plage horaire</option>
+                        <option value="Matinée (8h-12h)">Matinée (8h-12h)</option>
+                        <option value="Après-midi (14h-18h)">Après-midi (14h-18h)</option>
+                        <option value="Toute la journée">Toute la journée</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="submit-btn" id="submitBtn">
+                    <span class="btn-text">🚀 Envoyer ma demande de partenariat</span>
+                    <div class="loader"></div>
+                </button>
+
+                <p class="form-note">
+                    🔒 Vos données sont protégées et cryptées<br>
+                    📧 Vous recevrez une confirmation par email sous 24-48h
+                </p>
+            </form>
+
+            <div class="back-link">
+                <a href="index.html">← Retour à l'accueil</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('partnershipForm').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            let isValid = true;
+
+            // Validation des champs requis
+            const requiredFields = ['entreprise', 'secteur', 'pays', 'proposition', 'nom_contact', 'email', 'telephone'];
+            requiredFields.forEach(fieldId => {
+                const field = document.getElementById(fieldId);
+                const errorMsg = field.parentElement.querySelector('.error-message');
+                if (!field.value.trim()) {
+                    field.classList.add('error');
+                    if (errorMsg) errorMsg.classList.add('show');
+                    isValid = false;
+                } else {
+                    field.classList.remove('error');
+                    if (errorMsg) errorMsg.classList.remove('show');
+                }
+            });
+
+            // Validation email
+            const email = document.getElementById('email');
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (email.value && !emailRegex.test(email.value)) {
+                email.classList.add('error');
+                email.parentElement.querySelector('.error-message').classList.add('show');
+                isValid = false;
+            }
+
+            // Validation des checkboxes
+            const checkboxes = document.querySelectorAll('input[name="type_partenariat"]:checked');
+            const checkboxError = document.querySelector('.checkbox-group .error-message');
+            if (checkboxes.length === 0) {
+                checkboxError.classList.add('show');
+                isValid = false;
+            } else {
+                checkboxError.classList.remove('show');
+            }
+
+            if (!isValid) {
+                const firstError = document.querySelector('.error');
+                if (firstError) firstError.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                return;
+            }
+
+            // Préparation des données
+            const submitBtn = document.getElementById('submitBtn');
+            submitBtn.disabled = true;
+            submitBtn.classList.add('loading');
+
+            const formData = new FormData(this);
+            const data = {};
+            
+            // Récupérer les types de partenariat cochés
+            const typesPartenariat = Array.from(checkboxes).map(cb => cb.value).join(', ');
+            
+            formData.forEach((value, key) => {
+                if (key !== 'type_partenariat') {
+                    data[key] = value;
+                }
+            });
+            data.type_partenariat = typesPartenariat;
+            data.date = new Date().toLocaleString('fr-FR');
+
+            try {
+                // REMPLACEZ L'URL CI-DESSOUS PAR VOTRE URL GOOGLE APPS SCRIPT
+                const response = await fetch('https://script.google.com/macros/s/AKfycbxBxYYeXkrVNDceDXFeACdoT0E3JVaB9YK17jq89gWQzyqRQsLjfFejbq5T4hHHJwIntQ/exec', {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
+
+                // Redirection vers page de confirmation
+                window.location.href = 'merci-partenariat.html';
+            } catch (error) {
+                console.error('Erreur:', error);
+                alert('Une erreur est survenue. Veuillez réessayer ou nous contacter directement à contact@frikapay.com');
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('loading');
+            }
+        });
+
+        // Suppression des erreurs au focus
+        const inputs = document.querySelectorAll('input, select, textarea');
+        inputs.forEach(input => {
+            input.addEventListener('input', function() {
+                this.classList.remove('error');
+                const errorMsg = this.parentElement.querySelector('.error-message');
+                if (errorMsg) errorMsg.classList.remove('show');
+            });
+        });
+    </script>
+</body>
+</html>
